@@ -704,21 +704,32 @@ const GroQuestionGenerator = () => {
                     </div>
 
                     {/* CTA for Gro */}
-                    <div className="mt-8 text-center p-6 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Ready to Practice These Interviews?
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        AskGro can role-play as your customers so you can practice before the real thing
-                      </p>
-                      <a 
-                        href="https://www.askgro.ai/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-block px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-                      >
-                        Join the AskGro Waitlist →
-                      </a>
+                    <div className="mt-8 p-6 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl">
+                      <div className="flex items-center gap-6">
+                        <div className="flex-shrink-0">
+                          <img 
+                            src="/gro-avatar.png" 
+                            alt="Gro AI Customer Discovery Coach" 
+                            className="w-20 h-24 object-contain"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                            Ready to Practice These Interviews?
+                          </h3>
+                          <p className="text-gray-600 mb-4">
+                            Meet Gro, your AI customer discovery coach. Gro can role-play as different customer personas based on your business idea, so you can practice these interviews before the real thing.
+                          </p>
+                          <a 
+                            href="https://www.askgro.ai/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-block px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                          >
+                            Practice with Gro →
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
