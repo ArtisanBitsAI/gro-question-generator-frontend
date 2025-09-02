@@ -641,7 +641,7 @@ const GroQuestionGenerator = () => {
                       </p>
                     </div>
                     
-                    <div className="flex gap-3 max-w-md mx-auto">
+                    <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                       <input
                         type="email"
                         value={email}
@@ -656,7 +656,7 @@ const GroQuestionGenerator = () => {
                       />
                       <button
                         onClick={handleEmailSubmit}
-                        className="px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2"
+                        className="px-4 sm:px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap"
                       >
                         <Mail className="w-4 h-4" />
                         Get Access
