@@ -306,7 +306,7 @@ const GroQuestionGenerator = () => {
 
   const getQuestionCount = () => {
     if (!questions) return 0;
-    return Object.values(questions).reduce((acc: number, cat: any) => acc + cat.questions.length, 0);
+    return Object.values(questions).reduce((acc: number, cat: { questions: string[] }) => acc + cat.questions.length, 0);
   };
 
   const downloadQuestions = () => {
@@ -322,7 +322,7 @@ const GroQuestionGenerator = () => {
     content += conversationStarter + "\n\n";
     content += "=" .repeat(50) + "\n\n";
     
-    Object.values(questions as any).forEach((category: any) => {
+    Object.values(questions as { [key: string]: { title: string; description: string; questions: string[] } }).forEach((category) => {
       content += `${category.title.toUpperCase()}\n`;
       content += `${category.description}\n`;
       content += "-".repeat(30) + "\n";
@@ -405,7 +405,7 @@ const GroQuestionGenerator = () => {
               {/* Business Idea Input */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  What's your business idea? <span className="text-gray-400">(Be specific)</span>
+                  What&apos;s your business idea? <span className="text-gray-400">(Be specific)</span>
                 </label>
                 <textarea
                   value={businessIdea}
@@ -567,8 +567,8 @@ const GroQuestionGenerator = () => {
 
                 {/* Question Categories */}
                 {getVisibleQuestions().map((categoryKey) => {
-                  const category = (questions as any)[categoryKey];
-                  const isExpanded = (expandedCategories as any)[categoryKey];
+                  const category = (questions as { [key: string]: { title: string; description: string; questions: string[]; icon: React.ReactNode } })[categoryKey];
+                  const isExpanded = (expandedCategories as { [key: string]: boolean })[categoryKey];
                   
                   return (
                     <div key={categoryKey} className="mb-6 last:mb-0">
@@ -608,7 +608,7 @@ const GroQuestionGenerator = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-white via-white/95 to-transparent z-10 pointer-events-none"></div>
                     <div className="opacity-50 blur-[2px]">
                       {Object.keys(questions).slice(2, 4).map((categoryKey) => {
-                        const category = (questions as any)[categoryKey];
+                        const category = (questions as { [key: string]: { title: string; description: string; questions: string[]; icon: React.ReactNode } })[categoryKey];
                         return (
                           <div key={categoryKey} className="mb-4">
                             <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg">
