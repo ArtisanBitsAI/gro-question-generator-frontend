@@ -14,7 +14,7 @@ const GroQuestionGenerator = () => {
   const [showEmailGate, setShowEmailGate] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [expandedCategories, setExpandedCategories] = useState({});
+  const [expandedCategories, setExpandedCategories] = useState<{ [key: string]: boolean }>({});
 
   const interviewSettings = [
     { value: 'casual', label: 'Casual Conversation', icon: <Coffee className="w-4 h-4" />, description: 'Coffee chat, networking event, informal meetup' },
