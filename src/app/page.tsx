@@ -360,7 +360,7 @@ const GroQuestionGenerator = () => {
           alt="Gro AI" 
           className="w-16 h-20 object-contain"
         />
-        <div className="text-5xl font-bold tracking-tight">
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
           <span className="text-gray-800">Tools by </span>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Gro</span>
         </div>
@@ -386,9 +386,10 @@ const GroQuestionGenerator = () => {
             <GroLogo />
           </div>
           
-          <div className="inline-flex items-center gap-2 bg-emerald-100 text-teal-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            Powered by Gro • Personalized for Your Exact Business
+          <div className="inline-flex items-center gap-2 bg-emerald-100 text-teal-700 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Powered by Gro • Personalized for Your Exact Business</span>
+            <span className="sm:hidden">Powered by Gro • Personalized for You</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
