@@ -360,14 +360,14 @@ const GroQuestionGenerator = () => {
           alt="Gro AI" 
           className="w-16 h-20 object-contain"
         />
-        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-          <span className="text-gray-800">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Gro</span>
-            wth
-          </span>
-          <br className="sm:hidden" />
-          <span className="text-gray-800 sm:inline"> </span>
-          <span className="text-gray-800">Tools</span>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-left leading-tight">
+          <div className="sm:inline">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">GRO</span>
+            <span className="text-gray-800">WTH</span>
+          </div>
+          <div className="sm:inline sm:ml-2">
+            <span className="text-gray-800">TOOLS</span>
+          </div>
         </div>
       </div>
       <a 
