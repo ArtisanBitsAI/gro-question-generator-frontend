@@ -751,16 +751,12 @@ const GroQuestionGenerator = () => {
         </div>
       )}
 
-      {/* Social Proof */}
+      {/* Mission Statement */}
       <div className="px-4 py-12 border-t">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm text-gray-500 mb-4">Trusted by founders who've validated ideas at</p>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60">
-            <div className="text-2xl font-bold text-gray-400">YCombinator</div>
-            <div className="text-2xl font-bold text-gray-400">Techstars</div>
-            <div className="text-2xl font-bold text-gray-400">500 Startups</div>
-            <div className="text-2xl font-bold text-gray-400">Antler</div>
-          </div>
+          <p className="text-lg sm:text-xl font-medium text-gray-700 max-w-2xl mx-auto">
+            🌱 Helping founders validate ideas before they waste time, money, and ego.
+          </p>
         </div>
       </div>
     </div>
