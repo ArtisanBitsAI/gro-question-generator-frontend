@@ -412,12 +412,13 @@ const GroQuestionGenerator = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Stop Getting{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Polite Lies</span>
-            {' '}in Customer Interviews
+            <br />
+            in Customer Interviews
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Gro analyzes your business idea and generates personalized questions 
-            that make customers open up about their real problems.
+            that <span className="font-semibold text-gray-800">make customers open up about their real problems.</span>
           </p>
         </div>
       </div>
