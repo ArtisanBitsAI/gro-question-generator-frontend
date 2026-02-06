@@ -261,6 +261,16 @@ const GroQuestionGenerator = () => {
     if (!email.trim()) return;
     
     try {
+      // Build questions data to send in the email
+      const questionsForEmail = questions ? Object.entries(questions).reduce((acc, [key, category]) => {
+        acc[key] = {
+          title: category.title,
+          description: category.description,
+          questions: category.questions
+        };
+        return acc;
+      }, {} as Record<string, { title: string; description: string; questions: string[] }>) : null;
+
       const response = await fetch('https://gro-question-generator-production.up.railway.app/subscribe', {
         method: 'POST',
         headers: {
@@ -269,7 +279,10 @@ const GroQuestionGenerator = () => {
         body: JSON.stringify({
           email: email,
           businessIdea: businessIdea,
-          interviewSetting: interviewSetting
+          interviewSetting: interviewSetting,
+          interviewSettingLabel: interviewSettings.find(s => s.value === interviewSetting)?.label || interviewSetting,
+          conversationStarter: conversationStarter,
+          questions: questionsForEmail
         })
       });
 
@@ -278,7 +291,6 @@ const GroQuestionGenerator = () => {
       }
 
       const result = await response.json();
-      console.log('Email capture result:', result);
       
       setEmailSubmitted(true);
     } catch (error) {
@@ -687,7 +699,7 @@ const GroQuestionGenerator = () => {
                     <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
                       <div className="flex items-center gap-3 text-green-700 mb-4">
                         <CheckCircle className="w-6 h-6" />
-                        <span className="font-semibold">Success! Check your email for your questions.</span>
+                        <span className="font-semibold">Success! All questions unlocked. Check your email for a copy of your interview guide.</span>
                       </div>
                       
                       <button
