@@ -334,7 +334,7 @@ app.post('/subscribe', async (req, res) => {
  // Send the user their personalized questions email
  const userEmailMsg = {
   to: email,
-  from: 'questions@askgro.ai', // Must be a verified sender in SendGrid
+  from: 'notifications@askgro.ai',
   subject: `Your Customer Discovery Questions for: ${(businessIdea || '').substring(0, 60)}`,
   html: buildQuestionsEmailHtml({
    email,
