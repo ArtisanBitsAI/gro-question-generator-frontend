@@ -25,6 +25,7 @@ const GroQuestionGenerator = () => {
 
   const generateConversationStarter = async (idea: string, setting: string) => {
     try {
+      console.log("[v0] Calling /generate-starter with:", { businessIdea: idea, interviewSetting: setting });
       const response = await fetch('https://gro-question-generator-production.up.railway.app/generate-starter', {
         method: 'POST',
         headers: {
@@ -36,14 +37,19 @@ const GroQuestionGenerator = () => {
         })
       });
       
+      console.log("[v0] /generate-starter response status:", response.status, response.statusText);
+      
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorBody = await response.text();
+        console.error("[v0] /generate-starter error body:", errorBody);
+        throw new Error(`HTTP error! status: ${response.status} body: ${errorBody}`);
       }
       
       const data = await response.json();
+      console.log("[v0] /generate-starter success data:", data);
       return data.starter;
     } catch (error) {
-      console.error('Error generating conversation starter:', error);
+      console.error('[v0] Error generating conversation starter:', error);
       // Fallback to template if API fails
       const starters: Record<string, string> = {
         casual: `"Hey! I noticed you work in this space. I'm exploring ideas around improving workflows. Not selling anything - just trying to understand how people handle this today. Mind if I ask about your experience?"`,
@@ -113,6 +119,7 @@ const GroQuestionGenerator = () => {
 
   const generateQuestions = async (idea: string, setting: string) => {
     try {
+      console.log("[v0] Calling /generate-questions with:", { businessIdea: idea, interviewSetting: setting });
       const response = await fetch('https://gro-question-generator-production.up.railway.app/generate-questions', {
         method: 'POST',
         headers: {
@@ -124,11 +131,16 @@ const GroQuestionGenerator = () => {
         })
       });
       
+      console.log("[v0] /generate-questions response status:", response.status, response.statusText);
+      
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorBody = await response.text();
+        console.error("[v0] /generate-questions error body:", errorBody);
+        throw new Error(`HTTP error! status: ${response.status} body: ${errorBody}`);
       }
       
       const parsedQuestions = await response.json();
+      console.log("[v0] /generate-questions success - categories:", Object.keys(parsedQuestions));
       
       // Add icons to each category
       parsedQuestions.problemDiscovery.icon = <Target className="w-4 h-4" />;
@@ -140,7 +152,7 @@ const GroQuestionGenerator = () => {
       return parsedQuestions;
       
     } catch (error) {
-      console.error('Error generating AI questions:', error);
+      console.error('[v0] Error generating AI questions:', error);
       // Fallback to basic questions if API fails
       return getFallbackQuestions(idea, setting);
     }
