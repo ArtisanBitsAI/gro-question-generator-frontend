@@ -409,11 +409,11 @@ const GroQuestionGenerator = () => {
             <span className="sm:hidden">Powered by Gro • Personalized for You</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-balance">
             Stop Getting{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Polite Lies</span>
-            <br />
-            in Customer Interviews
+            <br className="hidden md:block" />
+            {' '}in Customer Interviews
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
